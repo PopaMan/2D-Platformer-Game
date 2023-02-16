@@ -125,7 +125,7 @@ public class Game extends JPanel {
     ArrayList<ArrayList<BufferedImage>> enemy2Images = new ArrayList<ArrayList<BufferedImage>>();
     enemy2Images.add(enemy2Walk);
     enemy2Images.add(enemy2Die);
-    
+
     Hero hero = new Hero(250, 600, 188, 188, 4.5, heroImages);
     BufferedImage background = ImageIO.read(new File("mapImages\\BG\\BG.png"));
     startGame(hero, blockImages, enemy1Images, enemy2Images, background);
@@ -140,6 +140,8 @@ public class Game extends JPanel {
     
     ArrayList<Block> blocks = readMaps("map2", blockImages);
     Map map = new Map(blocks);
+    enemies.add(new Enemy(5500, 730, 150, 160, 1, enemy1Images));
+    enemies.add(new Enemy(5000, 730, 150, 160, 1, enemy2Images));
     map.setEnemies(enemies);
     World w = new World(hero, background, map);
     
